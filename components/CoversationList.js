@@ -10,9 +10,11 @@ export default function ConversationList({user}) {
         throw response
     }).then(data => {
         // Iterate thru list of MessageThreads, getting other user
-        for(let i = 0; i < data.length; i++) {
-            let person_id_list = data[i]["people"]
-            console.log(person_id_list)
-        }
+        Array.from(data).forEach(item => {
+            let person_id_list = item["people"]
+            Array.from(person_id_list).forEach(id => {
+                
+            })
+        })
     })
 }
