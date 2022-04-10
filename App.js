@@ -4,7 +4,8 @@ function App() {
     return (
         <>
             <div>
-                <ConversationList/>
+                <ConversationList user={1}/>
+                Hello
             </div>
         </>
     )

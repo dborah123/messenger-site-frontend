@@ -1,13 +1,15 @@
 import React from "react";
 
-export default class ConversationNode {
+export default class ConversationNode extends React.Component {
 
     constructor(id) {
+        super()
+        console.log("here")
         this.id = id
     }
 
     getData() {
-        fetch("http://127.0.0.1:8000/person/1/").then(response => {
+        fetch("http://127.0.0.1:8000/person/" + this.id + "/").then(response => {
             if (response.ok) {
                 return response.json()
             }
@@ -17,9 +19,14 @@ export default class ConversationNode {
 
     render() {
         const data = this.getData()
+        console.log(data)
         const firstName = data["first_name"]
         const lastName = data["last_name"]
-
-        return <Button/>
+        console.log(firstName)
+        return (
+            <div>
+                ${firstName}
+            </div>
+        )
     }
 }
