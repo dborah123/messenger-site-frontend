@@ -10,11 +10,13 @@ export default function ConversationList({user}) {
         throw response
     }).then(data => {
         // Iterate thru list of MessageThreads, getting other user
-        Array.from(data).forEach(item => {
+        data.map(item => {
             let person_id_list = item["people"]
             person_id_list.map(id => {
+                console.log(id, user)
                 if (id !== user) {
-                    return <ConversationNode id={id}/>
+                    console.log("ere")
+                    return (<ConversationNode/>)
                 } else {
                     return null
                 }
